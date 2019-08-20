@@ -20,9 +20,12 @@ class Queue:
             print ('Sorry, no more room!')
 
     def dequeue (self):
-        remove_head = self.head
-        self.head = remove_head.get_next_node()
-        return remove_head.get_value()
+        if (self.size > 0):
+            remove_head = self.head
+            self.head = remove_head.get_next_node()
+            return remove_head.get_value()
+        else:
+            print ("Sorry, there's nothing to dequeue!")
     
     def peek (self):
         return self.head.get_value()
