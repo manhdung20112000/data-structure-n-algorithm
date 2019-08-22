@@ -1,1 +1,1 @@
-Data Linear Structure Exercise
+Data Structure Exercise
