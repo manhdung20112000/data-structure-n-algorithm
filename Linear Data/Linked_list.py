@@ -37,4 +37,3 @@ for key in word_list:
 test_list.remove_node('a')
 test_list.insert_head('Hello World')
 test_list.get_print()
-
