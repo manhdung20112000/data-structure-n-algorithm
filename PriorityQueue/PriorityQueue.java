@@ -12,19 +12,19 @@ public class PriorityQueue {
         swim(N);
     } 
 
-    private void exch(String a, String b){
-        String temp = a;
-        a = b;
-        b = temp;
+    private void exch(int a, int b){
+        String temp = pq[a];
+        pq[a] = pq[b];
+        pq[b] = temp;
     }
 
-    private boolean less(String a, String b){
-        return a.compareTo(b) < 0;
+    private boolean less(int a, int b){
+        return pq[a].compareTo(pq[b]) < 0;
     }
 
     private void swim(int k){
-        while (k>1 && less(pq[k], pq[k/2]){
-            exch (pq[k], pq[k/2]);
+        while (k>1 && less(k/2, k)){
+            exch (k, k/2);
             k = k/2;
         }
 
@@ -33,23 +33,23 @@ public class PriorityQueue {
     private void sink(int k){
         while (2*k<=N){
             int j = 2*k;
-            if (less(pq[j], pq[j+1])) j++;
-            if (!less(pq[k], pq[j])) break;
-            exch(a, b);
-            
+            if (j< N && less(j, j+1)) j++;
+            if (!less(k, j)) break;
+            exch(k, j);
+            k = j;
         }
     }
 
     public String delMax(){
         String max = pq[1];
-        exch(pq[1], pq[N--]); //Exchange first, then N-=1 that mean del the pq[N], N = N-1 now
+        exch(1, N--); //Exchange first, then N-=1 that mean del the pq[N], N = N-1 now
         sink(1);
         pq[N+1] = null; //prevent loitering?
         return max;
     }
 
     public boolean isEmpty(){
-        return length == 0;
+        return N == 0;
     }
 
     public static void main(String[] args) {
