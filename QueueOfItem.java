@@ -35,7 +35,7 @@ class QueueOfItem <Item> {
     }
 
     public static void main(String[] args) {
-        QueueOfItem<String> stack = new QueueOfItem()<>();
+        QueueOfItem<String> stack = new QueueOfItem<>();
         while (!StdIn.isEmpty()) {
             String s = StdIn.readString();
             if (s.equals("-"))
