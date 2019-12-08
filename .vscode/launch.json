@@ -1,0 +1,11 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - StackOfItem",
+            "request": "launch",
+            "mainClass": "StackOfItem",
+            "projectName": "data_structure_896aa7d8"
+        }
+    ]
+}

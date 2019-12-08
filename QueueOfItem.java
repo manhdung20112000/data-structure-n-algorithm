@@ -35,13 +35,13 @@ class QueueOfItem <Item> {
     }
 
     public static void main(String[] args) {
-        QueueOfItem<String> stack = new QueueOfItem<>();
+        QueueOfItem<String> queue = new QueueOfItem<>();
         while (!StdIn.isEmpty()) {
             String s = StdIn.readString();
             if (s.equals("-"))
-                StdOut.print(stack.pop());
+                StdOut.print(queue.dequeue() + ' ');
             else
-                stack.push(s);
+                queue.enqueue(s);
         }
     }
 }
