@@ -1,6 +1,7 @@
-to
-be
-or
-not
-to
-be
+6
+    to
+    be
+    or
+    not
+    to
+    be
