@@ -30,7 +30,7 @@ public class Mergesort {
 
     private static void sort(Comparable[] a, Comparable[] aux, int lo, int hi){
         if(hi<=lo) return; //break recursion
-        int mid = lo + (hi-lo)/2; //why don't we just "(lo + hi)/2" (?)
+        int mid = lo + (hi-lo)/2; //(hi-lo) to avoid overflow
         sort(a, aux, lo, mid);
         sort(a, aux, mid+1, hi);
         if(less(a[mid], a[mid+1])) return; // tricky code, reduce the time in some cases
