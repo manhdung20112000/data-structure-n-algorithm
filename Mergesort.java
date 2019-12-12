@@ -1,26 +1,28 @@
-/*
-Test case:
-=============
-    6
-    to
-    be
-    or
-    not
-    to
-    be
-=============
-Result:
-=============
-    be
-    be
-    not
-    or
-    to
-    to
-=============
-*/
+/******************************************************************************
+ *  Compilation:  javac Merge.java
+ *  Execution:    java Merge < input.txt
+ *  Dependencies: StdOut.java StdIn.java
+ *  Data files:   https://algs4.cs.princeton.edu/22mergesort/tiny.txt
+ *                https://algs4.cs.princeton.edu/22mergesort/words3.txt
+ *   
+ *  Sorts a sequence of strings from standard input using mergesort.
+ *   
+ *  % more tiny.txt
+ *  S O R T E X A M P L E
+ *
+ *  % java Merge < tiny.txt
+ *  A E E L M O P R S T X                 [ one string per line ]
+ *    
+ *  % more words3.txt
+ *  bed bug dad yes zoo ... all bad yet
+ *  
+ *  % java Merge < words3.txt
+ *  all bad bed bug dad ... yes yet zoo    [ one string per line ]
+ *  
+ ******************************************************************************/
 
-import java.util.Scanner;
+import edu.princeton.cs.algs4.StdIn;
+import edu.princeton.cs.algs4.StdOut;
 
 public class Mergesort {
     public static void sort(Comparable[] a){
@@ -76,24 +78,15 @@ public class Mergesort {
         return a.compareTo(b) < 0;
     }
 
+    private static void show(Comparable[] a) {
+        for (int i = 0; i < a.length; i++) {
+            StdOut.println(a[i]);
+        }
+    }
+
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        
-        int n = sc.nextInt();
-        String s[] = new String[n];
-        for (int i=0; i<n; i++){
-            s[i] = sc.next();
-        }
-
-        Mergesort.sort(s);
-
-        for (int i=0; i<n; i++){
-            System.out.println(s[i]);
-        }
-        sc.close();
-
-        // String[] a = StdIn.readAllStrings();
-        // Selection.sort(a);
-        // show(a);
+        String[] a = StdIn.readAllStrings();
+        Mergesort.sort(a);
+        show(a);
     }
 }

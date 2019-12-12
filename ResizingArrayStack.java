@@ -1,6 +1,19 @@
-/**
- * Implement with resizing array
- */
+/******************************************************************************
+ *  Compilation:  javac ResizingArrayStack.java
+ *  Execution:    java ResizingArrayStack < input.txt
+ *  Dependencies: StdIn.java StdOut.java
+ *  Data files:   https://algs4.cs.princeton.edu/13stacks/tobe.txt
+ *  
+ *  Stack implementation with a resizing array.
+ *
+ *  % more tobe.txt 
+ *  to be or not to - be - - that - - - is
+ *
+ *  % java ResizingArrayStack < tobe.txt
+ *  to be not that or be (2 left on stack)
+ *
+ ******************************************************************************/
+
 import edu.princeton.cs.algs4.StdIn;
 import edu.princeton.cs.algs4.StdOut;
 
@@ -8,8 +21,8 @@ public class ResizingArrayStack<Item>{
     private int N = 0;
     private Item[]items;
 
-    public ResizingArrayStack(int capacity){
-        items = (Item[]) new Object[capacity]; //urly cast? 
+    public ResizingArrayStack(){
+        items = (Item[]) new Object[2]; //urly cast? 
     }
 
     public boolean isEmpty(){
@@ -41,14 +54,17 @@ public class ResizingArrayStack<Item>{
         items = copy;
     }
 
+    public int size () {
+        return N;
+    }
+
     public static void main(String[] args) {
-        ResizingArrayStack<String> stack = new ResizingArrayStack(8);
+        ResizingArrayStack<String> stack = new ResizingArrayStack<String>();
         while (!StdIn.isEmpty()) {
-            String s = StdIn.readString();
-            if (s.equals("-"))
-                StdOut.print(stack.pop() + ' ');
-            else
-                stack.push(s);
+            String item = StdIn.readString();
+            if (!item.equals("-")) stack.push(item);
+            else if (!stack.isEmpty()) StdOut.print(stack.pop() + " ");
         }
+        StdOut.println("(" + stack.size() + " left on stack)");
     }
 }

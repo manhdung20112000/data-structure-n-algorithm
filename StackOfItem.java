@@ -38,13 +38,14 @@ public class StackOfItem<Item> {
     }
 
     public static void main(String[] args) {
-        StackOfItem<String> stack = new StackOfItem<>();
+        StackOfItem<String> stack = new StackOfItem<String>();
         while (!StdIn.isEmpty()) {
-            String s = StdIn.readString();
-            if (s.equals("-"))
-                StdOut.print(stack.pop() + ' ');
-            else
-                stack.push(s);
+            String item = StdIn.readString();
+            if (!item.equals("-"))
+                stack.push(item);
+            else if (!stack.isEmpty())
+                StdOut.print(stack.pop() + " ");
         }
+        StdOut.println("(" + stack.size() + " left on stack)");
     }
 }
