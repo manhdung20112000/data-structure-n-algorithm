@@ -1,7 +1,7 @@
 import edu.princeton.cs.algs4.StdIn;
 import edu.princeton.cs.algs4.StdOut;
 
-public class Date implements Comparable<Date> {
+public final class Date implements Comparable<Date> {
     protected int day, month, year;
 
     public Date(int day, int month, int year) {
@@ -24,6 +24,20 @@ public class Date implements Comparable<Date> {
     @Override
     public String toString() {
         return "Date [" + this.day + "/" + this.month + "/" + this.year + "]";
+    }
+
+    public boolean equal(Object y) {                        //Why Object? Experts still debate
+        if (y == this) return true;                         //optimize for true object equality
+        
+        if (y == null) return false;                        //check for null
+
+        if (y.getClass() != this.getClass()) return false;  //objects must be in the same class (religon: getClass() vs. instanceof())
+
+        Date that = (Date) y;                               //cast is guaranteed to succeed
+        if (that.day != this.day) return false;
+        if (that.month != this.month) return false;
+        if (that.year != this.year) return false;
+        return true;
     }
 
     public static void main(String[] args) {
