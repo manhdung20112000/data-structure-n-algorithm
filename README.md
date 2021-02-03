@@ -1,5 +1,7 @@
 # Data Structure
-**This is my assignment for university's data structure course**
+**This is my assignment on data structure and algorithm course below:**
+- https://www.coursera.org/learn/algorithms-part1
+- https://www.coursera.org/learn/algorithms-part2
 
 --------------------------------------------
 
